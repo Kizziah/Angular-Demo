@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AngularJS Tutorials</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+   <script type="text/javascript" src="app.js"></script>
+
+</head>
+<body>
+  <div class="container-fluid">
+      <h1>Angular Single Page Demo</h1>
+      <br>
+    <div ng-app="myApp">
+      <div ng-controller="Ctrl">
+        <div ng-show="step == 1">
+          <p>Step 1</p>
+          <p>Name: <input type="text" ng-model="user.name"></p>
+          <div ng-click="setStep(2)" class="btn btn-primary">Create</div>
+        </div>
+
+        <div ng-show="step == 2">
+          <p>Step 2</p>
+          <p>Hello {{user.name}}</p>
+          <div ng-click="setStep(3)" class="btn btn-primary">Please Confirm by clicking if your name is {{user.name}}</div>
+          <div ng-click="setStep(1)" class="btn btn-default">Click here to go back</div>
+        </div> <!-- STEP 2 -->
+        <div ng-show="step == 3">
+          <p>Step 3</p>
+          <p>Thanks {{user.name}}</p>
+          <p>Please give us money</p>
+          <p>Account Number:<input type="text" ng-model="user.accountNumber"></p>
+          <button ng-click="verify()" class="btn btn-primary">Verify</button>
+          <div ng-click="setStep(2)" class="btn btn-default">Click here to go back</div>
+        </div> <!-- STEP 3 -->
+
+        <div ng-show="admin == true">
+          <p>Admin/God Mode</p>
+          <p>{{user.name}}, please do as you like</p>
+          <span ng-click="screenColor('#B12ACC')" class="btn btn-primary">Make the screen purple</span> <span ng-click="screenColor('#fff')" class="btn btn-primary">Make the screen white</span>
+          <span ng-click="screenColor('#134CE7')"
+          class="btn btn-primary">Make the screen Blue</span>
+          <span ng-click="setStep(adminStep)"
+            class="btn btn-primary">Go to step</span>
+            <input type="text" ng-model="adminStep">
+            <div class="pull right">
+              <h3>User Details</h3>
+              <div> Name {{user.name}}</div>
+              <div>Account {{user.accountNumber}}</div>
+            </div>
+        </div> <!-- Admin Mode -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>
