@@ -1,4 +1,4 @@
 Angular-Demo
 =============
 
-Angular Single-page application example.
+Angular single-page application example. Shows how powerfull and easy Angular can be.  
